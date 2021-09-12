@@ -4,12 +4,12 @@ def conexao():
         host='localhost',
         user = 'root',
         password='',
-        database= 'azaroth'
+        database= 'azaroth2'
     )
     return banco
 def inserir(personagens,nomehab,hab):
     banco = conexao()
-    comando_sql = f'SELECT * FROM personagens Where personagens = "{personagens}" '
+    comando_sql = f'SELECT * FROM personagens Where personagem = "{personagens}" '
     cursor = banco.cursor()
     cursor.execute(comando_sql)
     dados = cursor.fetchall()
@@ -18,7 +18,7 @@ def inserir(personagens,nomehab,hab):
     banco.commit()
 def inserirPersonagem(personagem):
     banco = conexao()
-    comando_sql = f'INSERT INTO personagens (personagens) VALUES ("{personagem}")'
+    comando_sql = f'INSERT INTO personagens (personagem) VALUES ("{personagem}")'
     cursor = banco.cursor()
     cursor.execute(comando_sql)
     banco.commit()
